@@ -62,7 +62,7 @@ candidate in the the menu."
 (defun company-popup--show-tip ()
   "Shows the current documentation in a popup tip."
   (let* ((tip (company-popup--extract-docstring)))
-    (when tip
+    (when (and tip (not (= (length tip) 0)))
       (setq company-popup--tip
 	    (popup-tip tip
 		       :nowait t
@@ -95,6 +95,7 @@ showing the popup tip."
     (setq company-popup--prefix company-prefix)
     (company-popup--stop-tip-timer)
     (popup-delete company-popup--tip)
+    (setq company-popup--tip nil)
     (if change-popup
 	(progn (popup-delete company-popup--menu)
 	       (setq company-popup--menu
