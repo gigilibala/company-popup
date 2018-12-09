@@ -131,6 +131,7 @@ showing the popup tip."
 (defun company-popup--enable ()
   "Enables the company-popup."
   (make-local-variable 'company-frontends)
+  (setq company-frontends nil)
   (add-to-list 'company-frontends 'company-popup-frontend))
 
 (defun company-popup--disable ()
@@ -142,10 +143,13 @@ showing the popup tip."
 ;;;###autoload
 (define-minor-mode company-popup-mode
   "A simple frontend for `company-mode' using `popup'."
-  :global t
+  :global nil
   (if company-popup-mode
       (company-popup--enable)
     (company-popup--disable)))
+
+;;;###autoload
+(add-hook 'company-mode-hook 'company-popup-mode)
 
 (provide 'company-popup)
 ;;; company-popup ends here
