@@ -1,4 +1,4 @@
-;; company-popup.el --- Simple company mode frontend using popups
+;;; company-popup.el --- Simple company mode frontend using popups
 
 ;; Copyright (C) 2018, Amin Hassani
 
@@ -22,7 +22,10 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-;; Begin
+;;; Comentary:
+;; Nothing for now
+
+;;; Code:
 (require 'company)
 (require 'popup)
 
@@ -145,4 +148,4 @@ showing the popup tip."
     (company-popup--disable)))
 
 (provide 'company-popup)
-;; The end ;-)
+;;; company-popup ends here
